@@ -19,19 +19,23 @@ class Kas4Chart
 
     public function build(): \ArielMejiaDev\LarapexCharts\DonutChart
     {
-        $banks = Bank::count('nama_bank');
+        $masuk = Kas::where('masjid_id', auth()->user()->masjid_id);
+        $keluar = Kas::where('masjid_id', auth()->user()->masjid_id);
+        $bulan = date('m');
 
-        for ($i=1; $i <= $banks ; $i++) { 
-            $totalBank = MasjidBank::userMasjid()->count('nama_bank');
-            // $dataTotalBank[] = $totalBank; 
-            $bank[] = $i;
+        for ($i=1; $i <= $bulan ; $i++) { 
+            $masuk = Kas::userMasjid()->whereMonth('tanggal', $i)->where('jenis', 'masuk')->sum('jumlah');
+            $keluar = Kas::userMasjid()->whereMonth('tanggal', $i)->where('jenis', 'keluar')->sum('jumlah');
+            $dataBulan[] = Carbon::create()->month($i)->format('F');
+            $dataMasuk[] = $masuk; 
+            $dataKeluar[] = $keluar; 
         }
 
         return $this->chart->donutChart()
-            ->setTitle('Data Bank')
-            ->setSubtitle('Total Data Bank')
-            ->addData([$totalBank])
+            ->setTitle('Data Kas Bulanan')
+            ->setSubtitle('Total Penerimaan Kas Bulanan')
+            ->addData($dataMasuk)
             ->setHeight(280)
-            ->setLabels($bank);
+            ->setLabels($dataBulan);
     }
 }

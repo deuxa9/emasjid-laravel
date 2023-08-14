@@ -105,13 +105,13 @@ class KasController extends Controller
         $jumlah = str_replace('.', '', $requestData['jumlah']);
         $saldoAkhir = Kas::SaldoAkhir();
         $kas = $ka;
-        if ($kas->jenis == 'masuk') {
-            $saldoAkhir = $saldoAkhir - $kas->jumlah;
-        }
-        if ($kas->jenis == 'keluar') {
-            $saldoAkhir = $saldoAkhir + $kas->jumlah;
-        }
-        $saldoAkhir = $saldoAkhir + $jumlah;
+        // if ($kas->jenis == 'masuk') {
+        //     $saldoAkhir = $saldoAkhir - $kas->jumlah;
+        // }
+        // if ($kas->jenis == 'keluar') {
+        //     $saldoAkhir = $saldoAkhir + $kas->jumlah;
+        // }
+        // $saldoAkhir = $saldoAkhir + $jumlah;
         $requestData['jumlah'] = $jumlah;
         $kas->fill($requestData);
         $kas->save();

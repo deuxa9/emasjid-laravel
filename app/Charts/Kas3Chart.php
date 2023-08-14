@@ -17,20 +17,23 @@ class Kas3Chart
 
     public function build(): \ArielMejiaDev\LarapexCharts\PieChart
     {
-        $tahun = date('Y');
+        $masuk = Kas::where('masjid_id', auth()->user()->masjid_id);
+        $keluar = Kas::where('masjid_id', auth()->user()->masjid_id);
         $bulan = date('m');
 
         for ($i=1; $i <= $bulan ; $i++) { 
-            $totalKas = Kas::userMasjid()->whereYear('tanggal', $tahun)->whereMonth('tanggal', $i)->sum('jumlah');
-            $dataBulan = Carbon::create()->month($i)->format('F');
-            $dataTotalBulan[] = $dataBulan;
+            $masuk = Kas::userMasjid()->whereMonth('tanggal', $i)->where('jenis', 'masuk')->sum('jumlah');
+            $keluar = Kas::userMasjid()->whereMonth('tanggal', $i)->where('jenis', 'keluar')->sum('jumlah');
+            $dataBulan[] = Carbon::create()->month($i)->format('F');
+            $dataMasuk[] = $masuk; 
+            $dataKeluar[] = $keluar; 
         }
 
         return $this->chart->pieChart()
             ->setTitle('Data Kas Bulanan')
             ->setSubtitle('Total Penerimaan Kas Bulanan')
-            ->addData([$totalKas])
+            ->addData($dataMasuk)
             ->setHeight(280)
-            ->setLabels($dataTotalBulan);
+            ->setLabels($dataBulan);
     }
 }
