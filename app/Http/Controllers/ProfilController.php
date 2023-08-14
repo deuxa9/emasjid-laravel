@@ -71,8 +71,9 @@ class ProfilController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Profil $profil)
+    public function edit($id)
     {
+        $profil = Profil::where('masjid_id', auth()->user()->masjid_id)->where('id', $id)->firstOrFail();
         $data['profil'] = $profil;
         $data['route'] = ['profil.update', $profil->id];
         $data['method'] = 'PUT';

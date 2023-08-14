@@ -12,6 +12,7 @@ use App\Charts\Bank2Chart;
 use App\Charts\Kas6Chart;
 use App\Charts\SaldoChart;
 use App\Charts\KurbanChart;
+use App\Models\Kas;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -34,6 +35,7 @@ class HomeController extends Controller
     public function index(KasChart $kasChart, Kas2Chart $kas2Chart, 
     Kas3Chart $kas3Chart, Kas4Chart $kas4Chart, Kas5Chart $kas5Chart, Kas6Chart $kas6Chart)
     {
+        $data['saldoAkhir'] = Kas::saldoAkhir();
         $data['kasChart'] = $kasChart->build();
         $data['kas2Chart'] = $kas2Chart->build();
         $data['kas3Chart'] = $kas3Chart->build();
