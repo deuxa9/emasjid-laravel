@@ -15,6 +15,8 @@
                             ]) !!}
                             <div class="mb-3">
                                 <a href="{{ route('kas.create') }}" class="btn btn-primary">Tambah Data Kas</a>
+                                <a href="/exportkaspdf" class="btn btn-danger">Export PDF</a>
+                                <a href="/exportkasexcel" class="btn btn-success">Export Excel</a>
                                 {{-- <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Import Excel
@@ -42,33 +44,31 @@
                                     </div>
                                 </div> --}}
                             </div>
-                            <div class="d-flex bd-highlight mb-3 align-items-center">
-                                <div class="me-auto bd-highlight">
-                                    <a href="/exportkaspdf" class="btn btn-danger">Export PDF</a>
-                                    <a href="/exportkasexcel" class="btn btn-success">Export Excel</a>
-                                    
-                                </div>
-
-                                <div class="bd-highlight mx-1">
-                                    {!! Form::date('tanggal_mulai', request('tanggal_mulai', now()), [
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Tanggal Mulai',
-                                    ]) !!}
-                                </div>
-                                <div class="bd-highlight mx-1">
-                                    {!! Form::date('tanggal_selesai', request('tanggal_selesai', now()), [
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Tanggal Selesai',
-                                    ]) !!}
-                                </div>
-                                <div class="bd-highlight mx-1">
-                                    {!! Form::text('q', request('q'), [
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Keterangan Transaksi',
-                                    ]) !!}
-                                </div>
-                                <div class="bd-highlight">
-                                    <button type="submit" class="btn btn-primary">Cari</button>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="d-flex bd-highlight mb-3 align-items-center">
+                                        <div class="bd-highlight mx-1">
+                                            {!! Form::date('tanggal_mulai', request('tanggal_mulai', now()), [
+                                                'class' => 'form-control',
+                                                'placeholder' => 'Tanggal Mulai',
+                                            ]) !!}
+                                        </div>
+                                        <div class="bd-highlight mx-1">
+                                            {!! Form::date('tanggal_selesai', request('tanggal_selesai', now()), [
+                                                'class' => 'form-control',
+                                                'placeholder' => 'Tanggal Selesai',
+                                            ]) !!}
+                                        </div>
+                                        <div class="bd-highlight mx-1">
+                                            {!! Form::text('q', request('q'), [
+                                                'class' => 'form-control',
+                                                'placeholder' => 'Keterangan Transaksi',
+                                            ]) !!}
+                                        </div>
+                                        <div class="bd-highlight">
+                                            <button type="submit" class="btn btn-primary">Cari</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         {!! Form::close() !!} 

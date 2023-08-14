@@ -51,7 +51,7 @@
                 <div class="form-group mb-3">
                     {!! Form::label('jumlah', 'Jumlah Transaksi') !!}
                     {!! Form::text('jumlah', old('jumlah', isset($kas) ? $kas->jumlah : ''), ['class' => 'form-control rupiah','placeholder' =>
-                    'Jumlah']) !!}
+                    'Jumlah'] + $disable) !!}
                     <span class="text-danger">{{ $errors->first('jumlah') }}</span>
                 </div>
                 
