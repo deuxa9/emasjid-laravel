@@ -36,6 +36,7 @@
                 </div>
                 
                 {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('profil.index', $profil->id) }}" class="btn btn-primary mx-2">Kembali</a>
                 {!! Form::close() !!}
             </div>
         </div>

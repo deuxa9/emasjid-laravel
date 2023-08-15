@@ -56,12 +56,12 @@ class KasController extends Controller
         ]);
 
         $tanggalTransaksi = Carbon::parse($requestData['tanggal']);
-        // $tahunBulanTransaksi = $tanggalTransaksi->format(('Ym'));
-        // $tahunBulanSekarang = Carbon::now()->format('Ym');
-        // if ($tahunBulanTransaksi != $tahunBulanSekarang) {
-        //     flash('Data Kas gagal ditambahkan. Transaksi hanya bisa dilakukan untuk bulan ini')->error();
-        //     return back();
-        // }
+        $tahunBulanTransaksi = $tanggalTransaksi->format(('Ym'));
+        $tahunBulanSekarang = Carbon::now()->format('Ym');
+        if ($tahunBulanTransaksi != $tahunBulanSekarang) {
+            flash('Data Kas gagal ditambahkan. Transaksi hanya bisa dilakukan untuk bulan ini')->error();
+            return back();
+        }
 
         $requestData['jumlah'] = str_replace('.', '', $requestData['jumlah']);
         $saldoAkhir = Kas::SaldoAkhir();
