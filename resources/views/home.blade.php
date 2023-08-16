@@ -86,6 +86,38 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-xl-12 col-xxl-12">
+            <div class="card flex-fill">
+                <div class="card-header">
+
+                    <h5 class="card-title mb-0">Transaksi Terbaru</h5>
+                </div>
+                <table class="table table-hover my-0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Keterangan</th>
+                            <th class="d-none d-xl-table-cell">Tanggal</th>
+                            <th>Jenis</th>
+                            <th class="d-none d-md-table-cell">Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($kas as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->keterangan }}</td>
+                                <td class="d-none d-xl-table-cell">{{ $item->tanggal->format('d-m-Y') }}</td>
+                                <td><span class="badge bg-success">{{ $item->jenis }}</span></td>
+                                <td class="d-none d-md-table-cell">{{ formatRupiah($item->jumlah) }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+            
         <div class="col-xl-4 col-xxl-7">
             <div class="card flex-fill w-100">
                 <div class="card-body">

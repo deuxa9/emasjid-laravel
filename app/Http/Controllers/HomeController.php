@@ -35,6 +35,7 @@ class HomeController extends Controller
     public function index(KasChart $kasChart, Kas2Chart $kas2Chart, 
     Kas3Chart $kas3Chart, Kas4Chart $kas4Chart, Kas5Chart $kas5Chart, Kas6Chart $kas6Chart)
     {
+        $data['kas'] = Kas::where('masjid_id', auth()->user()->masjid_id)->latest()->limit(7)->get();
         $data['saldoAkhir'] = Kas::SaldoAkhir();
         $data['masuk'] = Kas::where('masjid_id', auth()->user()->masjid_id)->where('jenis', 'masuk')->sum('jumlah');
         $data['keluar'] = Kas::where('masjid_id', auth()->user()->masjid_id)->where('jenis', 'keluar')->sum('jumlah');
