@@ -110,7 +110,7 @@ class MasjidBankController extends Controller
 
     public function exportbankpdf()
     {
-        $data = MasjidBank::all();
+        $data = MasjidBank::where('masjid_id', auth()->user()->masjid_id)->get();
         view()->share('data', $data);
         $pdf = PDF::loadview('databankmasjid-pdf');
         return $pdf->download('databankmasjid.pdf');

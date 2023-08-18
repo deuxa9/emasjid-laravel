@@ -10,7 +10,7 @@
                     <div class="col-md-6 text-right mx-3 mt-3">
                         <a href="{{ route('informasi.create') }}" class="btn btn-primary">Tambah Data</a>
                         <a href="/exportinfopdf" class="btn btn-danger">Export PDF</a>
-                        <a href="/exportinfoexcel" class="btn btn-success">Export Excel</a>
+                        {{-- <a href="/exportinfoexcel" class="btn btn-success">Export Excel</a> --}}
                     </div>
                     <div class="card-body">
                         <div class="table-responsive mt-3">

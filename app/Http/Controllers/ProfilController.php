@@ -115,7 +115,7 @@ class ProfilController extends Controller
 
     public function exportprofilpdf()
     {
-        $data = Profil::all();
+        $data = Profil::where('masjid_id', auth()->user()->masjid_id)->get();
         view()->share('data', $data);
         $pdf = PDF::loadview('dataprofilmasjid-pdf');
         return $pdf->download('dataprofilmasjid.pdf');

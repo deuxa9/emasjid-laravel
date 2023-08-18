@@ -12,6 +12,6 @@ class KategoriExport implements FromCollection
     */
     public function collection()
     {
-        return Kategori::all();
+        return Kategori::where('masjid_id', auth()->user()->masjid_id)->get();
     }
 }

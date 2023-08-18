@@ -138,7 +138,7 @@ class KasController extends Controller
 
     public function exportkaspdf()
     {
-        $data = Kas::all();
+        $data = Kas::where('masjid_id', auth()->user()->masjid_id)->get();
         view()->share('data', $data);
         $pdf = PDF::loadview('datakasmasjid-pdf');
         return $pdf->download('datakasmasjid.pdf');

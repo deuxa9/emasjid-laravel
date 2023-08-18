@@ -12,6 +12,6 @@ class BankExport implements FromCollection
     */
     public function collection()
     {
-        return MasjidBank::all();
+        return MasjidBank::where('masjid_id', auth()->user()->masjid_id)->get();
     }
 }

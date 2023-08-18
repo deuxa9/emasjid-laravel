@@ -44,7 +44,7 @@
 
 					<li class="sidebar-item {{ Route::is('masjid.*') ? 'active' : '' }}">
 						<a class="sidebar-link" href="{{ route('masjid.create') }}">
-							<i class="bi bi-bank align-middle"></i> <span class="align-middle">Data Masjid</span>
+							<i class="fa-solid fa-bank align-middle"></i> <span class="align-middle">Data Masjid</span>
 						</a>
 					</li>
 

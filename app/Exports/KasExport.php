@@ -12,6 +12,6 @@ class KasExport implements FromCollection
     */
     public function collection()
     {
-        return Kas::all();
+        return Kas::where('masjid_id', auth()->user()->masjid_id)->get();
     }
 }

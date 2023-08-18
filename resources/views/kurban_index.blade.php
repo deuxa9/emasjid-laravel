@@ -8,10 +8,17 @@
             <div class="col">
                 <div class="card">
                     <div class="col-md-6 text-right mx-3 mt-3">
-                        <a href="{{ route('kurban.create') }}" class="btn btn-primary">Tambah Data</a>
-                        <a href="/exportkurbanpdf" class="btn btn-danger">Export PDF</a>
+                        @if ($models->count() == 0)
+                            <a href="{{ route('kurban.create') }}" class="btn btn-primary">
+                                Tambah Data
+                            </a>      
+                        @endif
+
                     </div>
                     <div class="card-body">
+                        @if ($models->count() == 1)
+                            <h4 class="text-warning fw-bold">Sebelum Menghapus Data Kurban. Hapus dahulu Data Hewan Kurban!</h4>        
+                        @endif
                         <div class="table-responsive mt-3">
                             <table class="table table-bordered">
                                 <thead>

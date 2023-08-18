@@ -101,7 +101,7 @@ class InformasiController extends Controller
 
     public function exportinfopdf()
     {
-        $data = Informasi::all();
+        $data = Informasi::where('masjid_id', auth()->user()->masjid_id)->get();
         view()->share('data', $data);
         $pdf = PDF::loadview('datainfomasjid-pdf');
         return $pdf->download('datainfomasjid.pdf');

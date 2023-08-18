@@ -46,9 +46,10 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('infaq', InfaqController::class);
 
         Route::resource('kurbanhewan', KurbanHewanController::class);
+        Route::get('/exporthewankurbanpdf', [KurbanHewanController::class, 'exporthewankurbanpdf'])->name('exporthewankurbanpdf');
         
         Route::resource('kurban', KurbanController::class);
-        Route::get('/exportkurbanpdf', [KurbanHewanController::class, 'exportkurbanpdf'])->name('exportkurbanpdf');
+        Route::get('/exportkurbanpdf', [KurbanController::class, 'exportkurbanpdf'])->name('exportkurbanpdf');
         
         Route::resource('masjidbank', MasjidBankController::class);
         Route::get('/exportbankpdf', [MasjidBankController::class, 'exportbankpdf'])->name('exportbankpdf');

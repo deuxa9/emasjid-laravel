@@ -38,17 +38,17 @@
                 
                 <div class="form-group mb-3">
                     {!! Form::label('iuran_perorang', 'Iuran Per-orang') !!}
-                    {!! Form::text('iuran_perorang', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('iuran_perorang', null, ['class' => 'form-control rupiah']) !!}
                     <span class="text-danger">{{ $errors->first('iuran_perorang') }}</span>
                 </div>
                 <div class="form-group mb-3">
                     {!! Form::label('harga', 'Harga Hewan*') !!}
-                    {!! Form::text('harga', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('harga', null, ['class' => 'form-control rupiah']) !!}
                     <span class="text-danger">{{ $errors->first('harga') }}</span>
                 </div>
                 <div class="form-group mb-3">
                     {!! Form::label('biaya_operasional', 'Biaya Operasional') !!}
-                    {!! Form::text('biaya_operasional', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('biaya_operasional', null, ['class' => 'form-control rupiah']) !!}
                     <span class="text-danger">{{ $errors->first('biaya_operasional') }}</span>
                 </div>
                 

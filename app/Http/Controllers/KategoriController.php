@@ -97,7 +97,7 @@ class KategoriController extends Controller
 
     public function exportkategoriinformasipdf()
     {
-        $data = Kategori::all();
+        $data = Kategori::where('masjid_id', auth()->user()->masjid_id)->get();
         view()->share('data', $data);
         $pdf = PDF::loadview('datakategoriinformasimasjid-pdf');
         return $pdf->download('datakategoriinformasimasjid.pdf');

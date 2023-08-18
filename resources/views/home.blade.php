@@ -109,7 +109,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->keterangan }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->tanggal->format('d-m-Y') }}</td>
-                                <td><span class="badge bg-success">{{ $item->jenis }}</span></td>
+                                <td><span class="badge bg-info">{{ $item->jenis}}</span></td>
                                 <td class="d-none d-md-table-cell">{{ formatRupiah($item->jumlah) }}</td>
                             </tr>
                         @endforeach

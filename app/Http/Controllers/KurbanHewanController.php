@@ -47,12 +47,15 @@ class KurbanHewanController extends Controller
                 Rule::exists('kurbans', 'id')->where('masjid_id', auth()->user()->masjid_id)
             ],
             'hewan' => 'required|in:kambing,sapi,domba,kerbau,unta',
-            'iuran_perorang' => 'required|numeric',
+            'iuran_perorang' => 'required',
             'kriteria' => 'nullable',
-            'harga' => 'nullable|numeric',
-            'biaya_operasional' => 'nullable|numeric',
+            'harga' => 'required',
+            'biaya_operasional' => 'required',
             'slug' => 'nullable',
         ]);
+        $requestData['iuran_perorang'] = str_replace('.', '', $requestData['iuran_perorang']);
+        $requestData['harga'] = str_replace('.', '', $requestData['harga']);
+        $requestData['biaya_operasional'] = str_replace('.', '', $requestData['biaya_operasional']);
         KurbanHewan::create($requestData);
         flash('Data sudah disimpan');
         return back();
@@ -112,12 +115,12 @@ class KurbanHewanController extends Controller
         return back();
     }
 
-    public function exportkurbanpdf()
+    public function exporthewankurbanpdf()
     {
-        $data = KurbanHewan::all();
+        $data = KurbanHewan::where('masjid_id', auth()->user()->masjid_id)->get();
         view()->share('data', $data);
-        $pdf = PDF::loadview('datakurbanmasjid-pdf');
-        return $pdf->download('datakurbanmasjid.pdf');
+        $pdf = PDF::loadview('datahewankurbanmasjid-pdf');
+        return $pdf->download('datahewankurbanmasjid.pdf');
     }
     // public function exportkurbanexcel(){
     //     return Excel::download(new KurbanExport, 'datakurbanmasjid.xlsx');

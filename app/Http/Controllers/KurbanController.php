@@ -98,12 +98,4 @@ class KurbanController extends Controller
         flash('Data sudah dihapus');
         return back();
     }
-
-    public function exportkurbanpdf()
-    {
-        $data = KurbanHewan::where('id', $id);
-        view()->share('data', $data);
-        $pdf = PDF::loadview('datakurbanmasjid-pdf');
-        return $pdf->download('datakurbanmasjid.pdf');
-    }
 }

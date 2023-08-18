@@ -12,6 +12,6 @@ class ProfilExport implements FromCollection
     */
     public function collection()
     {
-        return Profil::all();
+        return Profil::where('masjid_id', auth()->user()->masjid_id)->get();
     }
 }

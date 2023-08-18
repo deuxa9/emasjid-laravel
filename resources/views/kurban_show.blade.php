@@ -21,11 +21,15 @@
 
                         <h3>Data Hewan Kurban</h3>
                         
-                        @if ($model->kurbanHewan->count() >= 0)
+                        @if ($model->kurbanHewan->count() > 0)
+                            <h5 class="text-warning fw-bold">Silahkan Export data sebelum Idul Adha berikutnya!</h5>
                             <a href="{{ route('kurbanhewan.create',[
                                 'kurban_id' => $model->id,
                             ]) }}" class="btn btn-primary">
                                 Buat Baru
+                            </a>   
+                            <a href="/exporthewankurbanpdf" class="btn btn-danger">
+                                Export PDF
                             </a>   
                         @endif
 
