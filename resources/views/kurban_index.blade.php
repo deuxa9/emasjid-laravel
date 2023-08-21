@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body">
                         @if ($models->count() == 1)
-                            <h4 class="text-warning fw-bold">Sebelum Menghapus Data Kurban. Hapus dahulu Data Hewan Kurban!</h4>        
+                            <h4 class="text-warning fw-bold">Sebelum menghapus Data Kurban. Hapus dahulu Data Hewan Kurban pada Detail!</h4>        
                         @endif
                         <div class="table-responsive">
                             <table class="table table-bordered">
