@@ -21,6 +21,27 @@
 	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('adminkit/css/app.css') }}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+	<style>
+		.mobile-show {
+            display: none;
+        }
+
+        .desktop-show {
+            display: block;
+        }
+
+        @media screen and (max-width: 450px) {
+            .desktop-show {
+                display: none;
+            }
+
+            .mobile-show {
+                display: block;
+            }
+        }
+
+	</style>
 </head>
 
 <body>

@@ -7,39 +7,41 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="col-md-6 text-right mx-3 my-3">
+                    <div class="col-md-6 text-right mx-3 mt-3">
                         <a href="{{ route('masjidbank.create') }}" class="btn btn-primary">Tambah Data</a>
                         <a href="/exportbankpdf" class="btn btn-danger">Export PDF</a>
-                        <a href="/exportbankexcel" class="btn btn-success">Export Excel</a>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Import Excel
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Import Data Excel</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="mt-1">
+                            <a href="/exportbankexcel" class="btn btn-success">Export Excel</a>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Import Excel
+                            </button>
+    
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Import Data Excel</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form action="/importbankexcel" method="post" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <input class="form-control" type="file" name="file" required>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Import</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <form action="/importbankexcel" method="post" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="modal-body">
-                                            <input class="form-control" type="file" name="file" required>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Import</button>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive mt-3">
+                        <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>

@@ -34,7 +34,7 @@
                     {!! Form::text('email', null, ['class' => 'form-control']) !!}
                     <span class="text-danger">{!! $errors->first('email') !!}</span>
                 </div>
-                {!! Form::submit('simpan', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
                 {!! Form::close() !!}
             </div>
         </div>

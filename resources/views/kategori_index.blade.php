@@ -10,8 +10,9 @@
                     <div class="col-md-6 text-right mx-3 mt-3">
                         <a href="{{ route('kategori.create') }}" class="btn btn-primary">Tambah Kategori</a>
                         <a href="/exportkategoriinformasipdf" class="btn btn-danger">Export PDF</a>
+                        <div class="mt-1">
                         <a href="/exportkategoriinformasiexcel" class="btn btn-success">Export Excel</a>
-                        <!-- Button trigger modal -->
+                            <!-- Button trigger modal -->
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Import Excel
                         </button>
@@ -37,9 +38,10 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive mt-3">
+                        <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>

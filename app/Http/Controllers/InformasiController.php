@@ -29,7 +29,7 @@ class InformasiController extends Controller
         $data['model'] = new Informasi();
         $data['route'] = 'informasi.store';
         $data['method'] = 'POST';
-        $data['listKategori'] = Kategori::pluck('nama', 'id');
+        $data['listKategori'] = Kategori::where('masjid_id', auth()->user()->masjid_id)->pluck('nama', 'id');
         $data['title'] = 'Tambah Profil';
         return view('informasi_form', $data);
     }
@@ -68,7 +68,7 @@ class InformasiController extends Controller
         $data['model'] = $informasi;
         $data['route'] = ['informasi.update', $informasi->id];
         $data['method'] = 'PUT';
-        $data['listKategori'] = Kategori::pluck('nama', 'id');
+        $data['listKategori'] = Kategori::where('masjid_id', auth()->user()->masjid_id)->pluck('nama', 'id');
         $data['title'] = 'Ubah Informasi';
         return view('informasi_form', $data);
     }

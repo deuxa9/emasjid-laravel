@@ -13,7 +13,7 @@
                         {{-- <a href="/exportinfoexcel" class="btn btn-success">Export Excel</a> --}}
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive mt-3">
+                        <div class="table-responsive">
                             <table class="table table-responsive table-bordered">
                                 <thead>
                                     <tr>

@@ -19,7 +19,7 @@
                         @if ($models->count() == 1)
                             <h4 class="text-warning fw-bold">Sebelum Menghapus Data Kurban. Hapus dahulu Data Hewan Kurban!</h4>        
                         @endif
-                        <div class="table-responsive mt-3">
+                        <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>

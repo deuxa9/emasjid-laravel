@@ -10,7 +10,8 @@
                     <div class="col-md-6 text-right mx-3 mt-3">
                         <a href="{{ route('profil.create') }}" class="btn btn-primary">Tambah Profil</a>
                         <a href="/exportprofilpdf" class="btn btn-danger">Export PDF</a>
-                        <a href="/exportprofilexcel" class="btn btn-success">Export Excel</a>
+                        <div class="mt-1">
+                            <a href="/exportprofilexcel" class="btn btn-success">Export Excel</a>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Import Excel
@@ -37,9 +38,11 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
+                        
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive mt-3">
+                        <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
